@@ -1,4 +1,4 @@
-<!-- Chakra Nectar — The Sanctum Instrument — Celestial Clock (Light Theme) — v4 -->
+<!-- Chakra Nectar — The Sanctum Instrument — Celestial Clock (Light Theme) — v5 -->
 <div class="cn-clock-card">
   <svg class="cn-clock-svg" viewBox="0 0 705 705" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -20,13 +20,15 @@
         <stop offset="100%" stop-color="#5c4018" stop-opacity="0.9"/>
       </linearGradient>
 
-      <!-- Cosmic Navy brushed-steel gradient, reserved for the second hand so it reads distinctly against gold -->
-      <linearGradient id="navySteel" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%"  stop-color="#0a0815"/>
-        <stop offset="35%" stop-color="#1f1a3a"/>
-        <stop offset="50%" stop-color="#4a4470"/>
-        <stop offset="65%" stop-color="#1f1a3a"/>
-        <stop offset="100%" stop-color="#0a0815"/>
+      <!-- Iridescent blue/purple/green gradient for the crescent-moon second hand -->
+      <linearGradient id="iridescent" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%"  stop-color="#2e8b7a"/>
+        <stop offset="20%" stop-color="#4fd8c4"/>
+        <stop offset="38%" stop-color="#eaf6ff"/>
+        <stop offset="55%" stop-color="#8a7fe0"/>
+        <stop offset="75%" stop-color="#b06be0"/>
+        <stop offset="90%" stop-color="#4fd8c4"/>
+        <stop offset="100%" stop-color="#2e8b7a"/>
       </linearGradient>
 
       <radialGradient id="goldMetalRadial" cx="35%" cy="30%" r="75%">
@@ -106,8 +108,10 @@
         <polygon points="235,112 237.2,222 236.65,248 235,253.7 233.35,248 232.8,222" fill="url(#goldMetal)"/>
       </g>
       <g id="secondHand" filter="url(#handShadow)">
-        <line x1="235" y1="86.5" x2="235" y2="235" stroke="url(#navySteel)" stroke-width="2.6" stroke-linecap="round"/>
-        <circle cx="235" cy="254.8" r="5.6" fill="url(#navySteel)"/>
+        <line x1="235" y1="217" x2="235" y2="191" stroke="url(#goldMetal)" stroke-width="2.4" stroke-linecap="round"/>
+        <g transform="translate(235,181) rotate(-20)">
+          <path d="M0,-10 a10,10 0 1,0 0,20 a6.5,6.5 0 1,1 0,-20 Z" fill="url(#iridescent)"/>
+        </g>
       </g>
 
       <!-- Center hub -->
@@ -181,7 +185,7 @@
   .cn-wheelInner {
     transform-box: fill-box;
     transform-origin: center;
-    animation: cnSpinCCW 160s linear infinite;
+    animation: cnSpinCCW 60s linear infinite;
   }
   @keyframes cnSpinCW  { from { transform: rotate(0deg);   } to { transform: rotate(360deg);  } }
   @keyframes cnSpinCCW { from { transform: rotate(0deg);   } to { transform: rotate(-360deg); } }
