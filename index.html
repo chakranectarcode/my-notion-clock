@@ -1,6 +1,6 @@
-<!-- Chakra Nectar — The Sanctum Instrument — Celestial Clock (Light Theme) — v3 -->
+<!-- Chakra Nectar — The Sanctum Instrument — Celestial Clock (Light Theme) — v4 -->
 <div class="cn-clock-card">
-  <svg class="cn-clock-svg" viewBox="0 0 470 470" xmlns="http://www.w3.org/2000/svg">
+  <svg class="cn-clock-svg" viewBox="0 0 705 705" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="goldMetal" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%"  stop-color="#4a3410"/>
@@ -20,13 +20,13 @@
         <stop offset="100%" stop-color="#5c4018" stop-opacity="0.9"/>
       </linearGradient>
 
-      <!-- Deeper, higher-contrast pass reserved for the second hand so it reads distinctly against the gold hour/minute hands -->
-      <linearGradient id="goldMetalDeep" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%"  stop-color="#2e1f08"/>
-        <stop offset="40%" stop-color="#6b4a1a"/>
-        <stop offset="55%" stop-color="#c9a465"/>
-        <stop offset="70%" stop-color="#6b4a1a"/>
-        <stop offset="100%" stop-color="#2e1f08"/>
+      <!-- Cosmic Navy brushed-steel gradient, reserved for the second hand so it reads distinctly against gold -->
+      <linearGradient id="navySteel" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%"  stop-color="#0a0815"/>
+        <stop offset="35%" stop-color="#1f1a3a"/>
+        <stop offset="50%" stop-color="#4a4470"/>
+        <stop offset="65%" stop-color="#1f1a3a"/>
+        <stop offset="100%" stop-color="#0a0815"/>
       </linearGradient>
 
       <radialGradient id="goldMetalRadial" cx="35%" cy="30%" r="75%">
@@ -51,86 +51,71 @@
       <filter id="softGlow" x="-150%" y="-150%" width="400%" height="400%">
         <feGaussianBlur stdDeviation="6"/>
       </filter>
-
-      <!-- Celestial sigil template -->
-      <symbol id="sigilShape" viewBox="-7 -7 14 14">
-        <path d="M0,-7 L1.9,-1.9 L7,0 L1.9,1.9 L0,7 L-1.9,1.9 L-7,0 L-1.9,-1.9 Z" fill="url(#goldMetalRadial)"/>
-      </symbol>
     </defs>
 
-    <!-- Inner tilted armillary ring -->
-    <ellipse cx="235" cy="235" rx="124" ry="91"
-      transform="rotate(-13 235 235)"
-      fill="none" stroke="url(#goldMetalDim)" stroke-width="3.8"
-      filter="url(#innerRingShadow)"/>
+    <!-- Everything below is authored at 1x in a 235,235-centered space, then scaled 1.5x as a block -->
+    <g transform="scale(1.5)">
 
-    <!-- Celestial sigils — slow asynchronous blink, sit in the quiet band between the rings -->
-    <g>
-      <use href="#sigilShape" class="cn-sigil" x="273.3" y="92"   width="14" height="14" style="animation-duration:6.2s; animation-delay:0s;"/>
-      <use href="#sigilShape" class="cn-sigil" x="378"   y="196.7" width="12" height="12" style="animation-duration:7.4s; animation-delay:1.3s;"/>
-      <use href="#sigilShape" class="cn-sigil" x="339.7" y="339.7" width="13" height="13" style="animation-duration:5.6s; animation-delay:2.6s;"/>
-      <use href="#sigilShape" class="cn-sigil" x="196.7" y="378"   width="12" height="12" style="animation-duration:8.1s; animation-delay:0.7s;"/>
-      <use href="#sigilShape" class="cn-sigil" x="92"    y="273.3" width="14" height="14" style="animation-duration:6.8s; animation-delay:3.4s;"/>
-      <use href="#sigilShape" class="cn-sigil" x="130.3" y="130.3" width="12" height="12" style="animation-duration:7.9s; animation-delay:1.9s;"/>
-    </g>
+      <!-- ===== ROTATING WHEELS (armillary motion) — numerals/nodules/hands are NOT inside these groups ===== -->
+      <g class="cn-wheelOuter">
+        <circle cx="235" cy="235" r="165" fill="none" stroke="url(#goldMetal)" stroke-width="11" filter="url(#ringShadow)"/>
+      </g>
 
-    <!-- Outer ring -->
-    <circle cx="235" cy="235" r="165" fill="none"
-      stroke="url(#goldMetal)" stroke-width="11"
-      filter="url(#ringShadow)"/>
+      <g class="cn-wheelInner">
+        <ellipse cx="235" cy="235" rx="124" ry="91" transform="rotate(-13 235 235)"
+          fill="none" stroke="url(#goldMetalDim)" stroke-width="3.8" filter="url(#innerRingShadow)"/>
+      </g>
 
-    <!-- Right-side minimalist ticks (1,2,3,4,5 o'clock) -->
-    <g stroke="url(#goldMetal)" stroke-width="3.6" stroke-linecap="round">
-      <line x1="235" y1="69" x2="235" y2="79" transform="rotate(30 235 235)"/>
-      <line x1="235" y1="69" x2="235" y2="79" transform="rotate(60 235 235)"/>
-      <line x1="235" y1="69" x2="235" y2="79" transform="rotate(90 235 235)"/>
-      <line x1="235" y1="69" x2="235" y2="79" transform="rotate(120 235 235)"/>
-      <line x1="235" y1="69" x2="235" y2="79" transform="rotate(150 235 235)"/>
-    </g>
+      <!-- ===== FIXED FRAME: nodules at all 12 hours ===== -->
+      <g filter="url(#hubShadow)">
+        <circle class="cn-node" cx="235"   cy="400"   r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:6.8s; animation-delay:0s;"/>
+        <circle class="cn-node" cx="152.5" cy="377.9" r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:7.4s; animation-delay:0.6s;"/>
+        <circle class="cn-node" cx="92.1"  cy="317.5" r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:6.2s; animation-delay:1.2s;"/>
+        <circle class="cn-node" cx="70"    cy="235"   r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:7.9s; animation-delay:1.8s;"/>
+        <circle class="cn-node" cx="92.1"  cy="152.5" r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:7.1s; animation-delay:2.4s;"/>
+        <circle class="cn-node" cx="152.5" cy="92.1"  r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:6.5s; animation-delay:3.0s;"/>
+        <circle class="cn-node" cx="235"   cy="70"    r="9"   fill="url(#goldMetalRadial)" style="animation-duration:8.2s; animation-delay:3.6s;"/>
+        <circle class="cn-node" cx="317.5" cy="92.1"  r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:7.6s; animation-delay:0.3s;"/>
+        <circle class="cn-node" cx="377.9" cy="152.5" r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:6.9s; animation-delay:0.9s;"/>
+        <circle class="cn-node" cx="400"   cy="235"   r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:7.3s; animation-delay:1.5s;"/>
+        <circle class="cn-node" cx="377.9" cy="317.5" r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:6.6s; animation-delay:2.1s;"/>
+        <circle class="cn-node" cx="317.5" cy="377.9" r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:7.8s; animation-delay:2.7s;"/>
+      </g>
 
-    <!-- Chakra rivets: 6:00 Root ascending to 12:00 Crown -->
-    <g filter="url(#hubShadow)">
-      <circle cx="235"   cy="400"   r="8.3" fill="url(#goldMetalRadial)"/>
-      <circle cx="152.5" cy="377.9" r="8.3" fill="url(#goldMetalRadial)"/>
-      <circle cx="92.1"  cy="317.5" r="8.3" fill="url(#goldMetalRadial)"/>
-      <circle cx="70"    cy="235"   r="8.3" fill="url(#goldMetalRadial)"/>
-      <circle cx="92.1"  cy="152.5" r="8.3" fill="url(#goldMetalRadial)"/>
-      <circle cx="152.5" cy="92.1"  r="8.3" fill="url(#goldMetalRadial)"/>
-      <circle cx="235"   cy="70"    r="9"   fill="url(#goldMetalRadial)"/>
-    </g>
+      <!-- ===== FIXED FRAME: numerals ===== -->
+      <g class="cn-numerals">
+        <text x="235"   y="35">12</text>
+        <text x="335"   y="61.8">1</text>
+        <text x="408.2" y="135">2</text>
+        <text x="435"   y="235">3</text>
+        <text x="408.2" y="335">4</text>
+        <text x="335"   y="408.2">5</text>
+        <text x="235"   y="435">6</text>
+        <text x="135"   y="408.2">7</text>
+        <text x="61.8"  y="335">8</text>
+        <text x="35"    y="235">9</text>
+        <text x="61.8"  y="135">10</text>
+        <text x="135"   y="61.8">11</text>
+      </g>
 
-    <!-- Arabic numerals, Cinzel -->
-    <g class="cn-numerals">
-      <text x="235"   y="35">12</text>
-      <text x="335"   y="61.8">1</text>
-      <text x="408.2" y="135">2</text>
-      <text x="435"   y="235">3</text>
-      <text x="408.2" y="335">4</text>
-      <text x="335"   y="408.2">5</text>
-      <text x="235"   y="435">6</text>
-      <text x="135"   y="408.2">7</text>
-      <text x="61.8"  y="335">8</text>
-      <text x="35"    y="235">9</text>
-      <text x="61.8"  y="135">10</text>
-      <text x="135"   y="61.8">11</text>
-    </g>
+      <!-- ===== HANDS — driven only by real time via JS, never touched by the wheel animations ===== -->
+      <g id="hourHand" filter="url(#handShadow)">
+        <polygon points="235,158 238.3,222 237.75,248 235,252.6 232.25,248 231.7,222" fill="url(#goldMetal)"/>
+      </g>
+      <g id="minuteHand" filter="url(#handShadow)">
+        <polygon points="235,112 237.2,222 236.65,248 235,253.7 233.35,248 232.8,222" fill="url(#goldMetal)"/>
+      </g>
+      <g id="secondHand" filter="url(#handShadow)">
+        <line x1="235" y1="86.5" x2="235" y2="235" stroke="url(#navySteel)" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="235" cy="254.8" r="5.6" fill="url(#navySteel)"/>
+      </g>
 
-    <!-- Hands -->
-    <g id="hourHand" filter="url(#handShadow)">
-      <polygon points="235,158 238.3,222 237.75,248 235,252.6 232.25,248 231.7,222" fill="url(#goldMetal)"/>
-    </g>
-    <g id="minuteHand" filter="url(#handShadow)">
-      <polygon points="235,112 237.2,222 236.65,248 235,253.7 233.35,248 232.8,222" fill="url(#goldMetal)"/>
-    </g>
-    <g id="secondHand" filter="url(#handShadow)">
-      <line x1="235" y1="86.5" x2="235" y2="235" stroke="url(#goldMetalDeep)" stroke-width="2.2" stroke-linecap="round"/>
-      <circle cx="235" cy="254.8" r="5.2" fill="url(#goldMetalDeep)"/>
-    </g>
+      <!-- Center hub -->
+      <circle id="hubGlow" cx="235" cy="235" r="24" fill="#f2dca0" opacity="0.35" filter="url(#softGlow)"/>
+      <circle cx="235" cy="235" r="17" fill="url(#goldMetalRadial)" filter="url(#hubShadow)"/>
+      <circle cx="235" cy="235" r="17" fill="none" stroke="#4a3410" stroke-width="0.9" opacity="0.5"/>
 
-    <!-- Center hub -->
-    <circle id="hubGlow" cx="235" cy="235" r="24" fill="#f2dca0" opacity="0.35" filter="url(#softGlow)"/>
-    <circle cx="235" cy="235" r="17" fill="url(#goldMetalRadial)" filter="url(#hubShadow)"/>
-    <circle cx="235" cy="235" r="17" fill="none" stroke="#4a3410" stroke-width="0.9" opacity="0.5"/>
+    </g>
   </svg>
 
   <div class="cn-date" id="cnDate">Loading…</div>
@@ -140,17 +125,17 @@
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap');
 
   .cn-clock-card {
-    width: 560px;
-    max-width: 94vw;
+    width: 840px;
+    max-width: 96vw;
     margin: 0 auto;
-    padding: 40px 40px 32px;
+    padding: 60px 60px 48px;
     box-sizing: border-box;
-    border-radius: 34px;
+    border-radius: 40px;
     background: radial-gradient(circle at 50% 42%, #f6efdf 0%, #f0e8d8 45%, #d4c49a 100%);
     box-shadow:
-      inset 0 0 60px rgba(74,52,16,0.10),
-      0 18px 40px rgba(74,52,16,0.16),
-      0 4px 10px rgba(74,52,16,0.10);
+      inset 0 0 80px rgba(74,52,16,0.10),
+      0 24px 54px rgba(74,52,16,0.16),
+      0 6px 14px rgba(74,52,16,0.10);
     border: 1px solid rgba(154,110,40,0.25);
   }
   .cn-clock-svg {
@@ -168,12 +153,12 @@
     dominant-baseline: middle;
   }
   .cn-date {
-    margin-top: 20px;
+    margin-top: 28px;
     text-align: center;
     font-family: 'Cinzel', serif;
     font-weight: 600;
-    font-size: 17px;
-    letter-spacing: 2px;
+    font-size: 22px;
+    letter-spacing: 2.5px;
     text-transform: uppercase;
     color: #5c3f14;
   }
@@ -186,17 +171,32 @@
     0%, 100% { transform: scale(1);    opacity: 0.30; }
     50%      { transform: scale(1.35); opacity: 0.55; }
   }
-  .cn-sigil {
-    opacity: 0;
+
+  /* Armillary wheel motion — slow, continuous, independent, contrary directions */
+  .cn-wheelOuter {
     transform-box: fill-box;
     transform-origin: center;
-    animation-name: cnSigilBlink;
+    animation: cnSpinCW 220s linear infinite;
+  }
+  .cn-wheelInner {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: cnSpinCCW 160s linear infinite;
+  }
+  @keyframes cnSpinCW  { from { transform: rotate(0deg);   } to { transform: rotate(360deg);  } }
+  @keyframes cnSpinCCW { from { transform: rotate(0deg);   } to { transform: rotate(-360deg); } }
+
+  /* Nodule flicker — slow, gentle, asynchronous (speed ~3/10) */
+  .cn-node {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation-name: cnNodeFlicker;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
   }
-  @keyframes cnSigilBlink {
-    0%, 100% { opacity: 0;    transform: scale(0.55); }
-    50%      { opacity: 0.62; transform: scale(1); }
+  @keyframes cnNodeFlicker {
+    0%, 100% { filter: brightness(1)    saturate(1);    }
+    50%      { filter: brightness(1.45) saturate(1.15); }
   }
 </style>
 
