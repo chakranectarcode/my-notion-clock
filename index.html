@@ -1,6 +1,6 @@
-<!-- Chakra Nectar — The Sanctum Instrument — Celestial Clock (Light Theme) — v2 -->
+<!-- Chakra Nectar — The Sanctum Instrument — Celestial Clock (Light Theme) — v3 -->
 <div class="cn-clock-card">
-  <svg class="cn-clock-svg" viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">
+  <svg class="cn-clock-svg" viewBox="0 0 470 470" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="goldMetal" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%"  stop-color="#4a3410"/>
@@ -18,6 +18,15 @@
         <stop offset="45%" stop-color="#c9a465" stop-opacity="0.9"/>
         <stop offset="55%" stop-color="#e9d29c" stop-opacity="0.9"/>
         <stop offset="100%" stop-color="#5c4018" stop-opacity="0.9"/>
+      </linearGradient>
+
+      <!-- Deeper, higher-contrast pass reserved for the second hand so it reads distinctly against the gold hour/minute hands -->
+      <linearGradient id="goldMetalDeep" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%"  stop-color="#2e1f08"/>
+        <stop offset="40%" stop-color="#6b4a1a"/>
+        <stop offset="55%" stop-color="#c9a465"/>
+        <stop offset="70%" stop-color="#6b4a1a"/>
+        <stop offset="100%" stop-color="#2e1f08"/>
       </linearGradient>
 
       <radialGradient id="goldMetalRadial" cx="35%" cy="30%" r="75%">
@@ -42,84 +51,101 @@
       <filter id="softGlow" x="-150%" y="-150%" width="400%" height="400%">
         <feGaussianBlur stdDeviation="6"/>
       </filter>
+
+      <!-- Celestial sigil template -->
+      <symbol id="sigilShape" viewBox="-7 -7 14 14">
+        <path d="M0,-7 L1.9,-1.9 L7,0 L1.9,1.9 L0,7 L-1.9,1.9 L-7,0 L-1.9,-1.9 Z" fill="url(#goldMetalRadial)"/>
+      </symbol>
     </defs>
 
     <!-- Inner tilted armillary ring -->
-    <ellipse cx="220" cy="220" rx="113" ry="83"
-      transform="rotate(-13 220 220)"
-      fill="none" stroke="url(#goldMetalDim)" stroke-width="3.5"
+    <ellipse cx="235" cy="235" rx="124" ry="91"
+      transform="rotate(-13 235 235)"
+      fill="none" stroke="url(#goldMetalDim)" stroke-width="3.8"
       filter="url(#innerRingShadow)"/>
 
+    <!-- Celestial sigils — slow asynchronous blink, sit in the quiet band between the rings -->
+    <g>
+      <use href="#sigilShape" class="cn-sigil" x="273.3" y="92"   width="14" height="14" style="animation-duration:6.2s; animation-delay:0s;"/>
+      <use href="#sigilShape" class="cn-sigil" x="378"   y="196.7" width="12" height="12" style="animation-duration:7.4s; animation-delay:1.3s;"/>
+      <use href="#sigilShape" class="cn-sigil" x="339.7" y="339.7" width="13" height="13" style="animation-duration:5.6s; animation-delay:2.6s;"/>
+      <use href="#sigilShape" class="cn-sigil" x="196.7" y="378"   width="12" height="12" style="animation-duration:8.1s; animation-delay:0.7s;"/>
+      <use href="#sigilShape" class="cn-sigil" x="92"    y="273.3" width="14" height="14" style="animation-duration:6.8s; animation-delay:3.4s;"/>
+      <use href="#sigilShape" class="cn-sigil" x="130.3" y="130.3" width="12" height="12" style="animation-duration:7.9s; animation-delay:1.9s;"/>
+    </g>
+
     <!-- Outer ring -->
-    <circle cx="220" cy="220" r="150" fill="none"
-      stroke="url(#goldMetal)" stroke-width="9"
+    <circle cx="235" cy="235" r="165" fill="none"
+      stroke="url(#goldMetal)" stroke-width="11"
       filter="url(#ringShadow)"/>
 
     <!-- Right-side minimalist ticks (1,2,3,4,5 o'clock) -->
-    <g stroke="url(#goldMetal)" stroke-width="3" stroke-linecap="round">
-      <line x1="220" y1="70" x2="220" y2="79" transform="rotate(30 220 220)"/>
-      <line x1="220" y1="70" x2="220" y2="79" transform="rotate(60 220 220)"/>
-      <line x1="220" y1="70" x2="220" y2="79" transform="rotate(90 220 220)"/>
-      <line x1="220" y1="70" x2="220" y2="79" transform="rotate(120 220 220)"/>
-      <line x1="220" y1="70" x2="220" y2="79" transform="rotate(150 220 220)"/>
+    <g stroke="url(#goldMetal)" stroke-width="3.6" stroke-linecap="round">
+      <line x1="235" y1="69" x2="235" y2="79" transform="rotate(30 235 235)"/>
+      <line x1="235" y1="69" x2="235" y2="79" transform="rotate(60 235 235)"/>
+      <line x1="235" y1="69" x2="235" y2="79" transform="rotate(90 235 235)"/>
+      <line x1="235" y1="69" x2="235" y2="79" transform="rotate(120 235 235)"/>
+      <line x1="235" y1="69" x2="235" y2="79" transform="rotate(150 235 235)"/>
     </g>
 
     <!-- Chakra rivets: 6:00 Root ascending to 12:00 Crown -->
     <g filter="url(#hubShadow)">
-      <circle cx="220" cy="370" r="7.5" fill="url(#goldMetalRadial)"/>
-      <circle cx="145" cy="349.9" r="7.5" fill="url(#goldMetalRadial)"/>
-      <circle cx="90.1" cy="295" r="7.5" fill="url(#goldMetalRadial)"/>
-      <circle cx="70" cy="220" r="7.5" fill="url(#goldMetalRadial)"/>
-      <circle cx="90.1" cy="145" r="7.5" fill="url(#goldMetalRadial)"/>
-      <circle cx="145" cy="90.1" r="7.5" fill="url(#goldMetalRadial)"/>
-      <circle cx="220" cy="70" r="8" fill="url(#goldMetalRadial)"/>
+      <circle cx="235"   cy="400"   r="8.3" fill="url(#goldMetalRadial)"/>
+      <circle cx="152.5" cy="377.9" r="8.3" fill="url(#goldMetalRadial)"/>
+      <circle cx="92.1"  cy="317.5" r="8.3" fill="url(#goldMetalRadial)"/>
+      <circle cx="70"    cy="235"   r="8.3" fill="url(#goldMetalRadial)"/>
+      <circle cx="92.1"  cy="152.5" r="8.3" fill="url(#goldMetalRadial)"/>
+      <circle cx="152.5" cy="92.1"  r="8.3" fill="url(#goldMetalRadial)"/>
+      <circle cx="235"   cy="70"    r="9"   fill="url(#goldMetalRadial)"/>
     </g>
 
-    <!-- Roman numerals -->
+    <!-- Arabic numerals, Cinzel -->
     <g class="cn-numerals">
-      <text x="220" y="42">XII</text>
-      <text x="309" y="65.9">I</text>
-      <text x="374.1" y="131">II</text>
-      <text x="398" y="220">III</text>
-      <text x="374.1" y="309">IV</text>
-      <text x="309" y="374.1">V</text>
-      <text x="220" y="398">VI</text>
-      <text x="131" y="374.1">VII</text>
-      <text x="65.9" y="309">VIII</text>
-      <text x="42" y="220">IX</text>
-      <text x="65.9" y="131">X</text>
-      <text x="131" y="65.9">XI</text>
+      <text x="235"   y="35">12</text>
+      <text x="335"   y="61.8">1</text>
+      <text x="408.2" y="135">2</text>
+      <text x="435"   y="235">3</text>
+      <text x="408.2" y="335">4</text>
+      <text x="335"   y="408.2">5</text>
+      <text x="235"   y="435">6</text>
+      <text x="135"   y="408.2">7</text>
+      <text x="61.8"  y="335">8</text>
+      <text x="35"    y="235">9</text>
+      <text x="61.8"  y="135">10</text>
+      <text x="135"   y="61.8">11</text>
     </g>
 
     <!-- Hands -->
     <g id="hourHand" filter="url(#handShadow)">
-      <polygon points="220,150 223,208 222.5,232 220,236 217.5,232 217,208" fill="url(#goldMetal)"/>
+      <polygon points="235,158 238.3,222 237.75,248 235,252.6 232.25,248 231.7,222" fill="url(#goldMetal)"/>
     </g>
     <g id="minuteHand" filter="url(#handShadow)">
-      <polygon points="220,108 222,208 221.5,232 220,237 218.5,232 218,208" fill="url(#goldMetal)"/>
+      <polygon points="235,112 237.2,222 236.65,248 235,253.7 233.35,248 232.8,222" fill="url(#goldMetal)"/>
     </g>
     <g id="secondHand" filter="url(#handShadow)">
-      <line x1="220" y1="85" x2="220" y2="220" stroke="url(#goldMetal)" stroke-width="1.6" stroke-linecap="round"/>
-      <circle cx="220" cy="238" r="4.5" fill="url(#goldMetalRadial)"/>
+      <line x1="235" y1="86.5" x2="235" y2="235" stroke="url(#goldMetalDeep)" stroke-width="2.2" stroke-linecap="round"/>
+      <circle cx="235" cy="254.8" r="5.2" fill="url(#goldMetalDeep)"/>
     </g>
 
     <!-- Center hub -->
-    <circle id="hubGlow" cx="220" cy="220" r="20" fill="#f2dca0" opacity="0.35" filter="url(#softGlow)"/>
-    <circle cx="220" cy="220" r="15" fill="url(#goldMetalRadial)" filter="url(#hubShadow)"/>
-    <circle cx="220" cy="220" r="15" fill="none" stroke="#4a3410" stroke-width="0.75" opacity="0.5"/>
+    <circle id="hubGlow" cx="235" cy="235" r="24" fill="#f2dca0" opacity="0.35" filter="url(#softGlow)"/>
+    <circle cx="235" cy="235" r="17" fill="url(#goldMetalRadial)" filter="url(#hubShadow)"/>
+    <circle cx="235" cy="235" r="17" fill="none" stroke="#4a3410" stroke-width="0.9" opacity="0.5"/>
   </svg>
+
+  <div class="cn-date" id="cnDate">Loading…</div>
 </div>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&display=swap');
 
   .cn-clock-card {
-    width: 380px;
-    max-width: 92vw;
+    width: 560px;
+    max-width: 94vw;
     margin: 0 auto;
-    padding: 36px;
+    padding: 40px 40px 32px;
     box-sizing: border-box;
-    border-radius: 28px;
+    border-radius: 34px;
     background: radial-gradient(circle at 50% 42%, #f6efdf 0%, #f0e8d8 45%, #d4c49a 100%);
     box-shadow:
       inset 0 0 60px rgba(74,52,16,0.10),
@@ -134,12 +160,22 @@
   }
   .cn-numerals text {
     font-family: 'Cinzel', serif;
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 26px;
+    font-weight: 700;
     letter-spacing: 0.5px;
-    fill: #6b4a1a;
+    fill: #5c3f14;
     text-anchor: middle;
     dominant-baseline: middle;
+  }
+  .cn-date {
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #5c3f14;
   }
   #hubGlow {
     transform-box: fill-box;
@@ -150,6 +186,18 @@
     0%, 100% { transform: scale(1);    opacity: 0.30; }
     50%      { transform: scale(1.35); opacity: 0.55; }
   }
+  .cn-sigil {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation-name: cnSigilBlink;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  @keyframes cnSigilBlink {
+    0%, 100% { opacity: 0;    transform: scale(0.55); }
+    50%      { opacity: 0.62; transform: scale(1); }
+  }
 </style>
 
 <script>
@@ -157,20 +205,53 @@
     const hourHand = document.getElementById('hourHand');
     const minuteHand = document.getElementById('minuteHand');
     const secondHand = document.getElementById('secondHand');
+    const dateEl = document.getElementById('cnDate');
+
+    const TZ = 'America/New_York';
+
+    const timeFmt = new Intl.DateTimeFormat('en-US', {
+      timeZone: TZ, hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit'
+    });
+    const dateFmt = new Intl.DateTimeFormat('en-US', {
+      timeZone: TZ, weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+    });
+
+    function getEasternHMS(now) {
+      const parts = timeFmt.formatToParts(now);
+      const map = {};
+      parts.forEach(p => { map[p.type] = p.value; });
+      let hour = parseInt(map.hour, 10);
+      if (hour === 24) hour = 0;
+      return {
+        hour: hour,
+        minute: parseInt(map.minute, 10),
+        second: parseInt(map.second, 10)
+      };
+    }
+
+    let lastDateStr = '';
 
     function updateClock() {
       const now = new Date();
-      const s = now.getSeconds() + now.getMilliseconds() / 1000;
-      const m = now.getMinutes() + s / 60;
-      const h = (now.getHours() % 12) + m / 60;
+      const { hour, minute, second } = getEasternHMS(now);
+
+      const s = second + now.getMilliseconds() / 1000;
+      const m = minute + s / 60;
+      const h = (hour % 12) + m / 60;
 
       const secDeg = (s / 60) * 360;
       const minDeg = (m / 60) * 360;
       const hourDeg = (h / 12) * 360;
 
-      hourHand.setAttribute('transform', `rotate(${hourDeg} 220 220)`);
-      minuteHand.setAttribute('transform', `rotate(${minDeg} 220 220)`);
-      secondHand.setAttribute('transform', `rotate(${secDeg} 220 220)`);
+      hourHand.setAttribute('transform', `rotate(${hourDeg} 235 235)`);
+      minuteHand.setAttribute('transform', `rotate(${minDeg} 235 235)`);
+      secondHand.setAttribute('transform', `rotate(${secDeg} 235 235)`);
+
+      const dateStr = dateFmt.format(now);
+      if (dateStr !== lastDateStr) {
+        dateEl.textContent = dateStr;
+        lastDateStr = dateStr;
+      }
 
       requestAnimationFrame(updateClock);
     }
