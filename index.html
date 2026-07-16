@@ -25,12 +25,8 @@
     margin: 0 auto;
     padding: 3% 3%;
     border-radius: 4%;
-    background: radial-gradient(circle at 50% 42%, #f6efdf 0%, #f0e8d8 45%, #d4c49a 100%);
-    box-shadow:
-      inset 0 0 60px rgba(74,52,16,0.10),
-      0 18px 40px rgba(74,52,16,0.16),
-      0 4px 10px rgba(74,52,16,0.10);
-    border: 1px solid rgba(154,110,40,0.25);
+    background: url('your-image.jpg') center/cover;
+  
   }
   .cn-clock-svg {
     display: block;
@@ -49,12 +45,11 @@
   .cn-date {
     font-family: 'Cinzel', Georgia, serif;
     font-weight: 600;
-    font-size: 30px;
-    letter-spacing: 0.8px;
+    font-size: 32px;
+    letter-spacing: 1px;
     fill: #5c3f14;
     text-anchor: middle;
     dominant-baseline: middle;
-   padding: 3% 3%;
   }
   #hubGlow {
     transform-box: fill-box;
@@ -181,6 +176,49 @@
         <circle class="cn-node" cx="400"   cy="235"   r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:7.3s; animation-delay:1.5s;"/>
         <circle class="cn-node" cx="377.9" cy="317.5" r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:6.6s; animation-delay:2.1s;"/>
         <circle class="cn-node" cx="317.5" cy="377.9" r="8.3" fill="url(#goldMetalRadial)" style="animation-duration:7.8s; animation-delay:2.7s;"/>
+      </g>
+
+      <g stroke="#a3781f" stroke-width="2.6" stroke-linecap="round">
+        <!-- 30-minute mark: taller spike, midpoint of each hour -->
+        <line x1="235" y1="64" x2="235" y2="45" transform="rotate(15 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="45" transform="rotate(45 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="45" transform="rotate(75 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="45" transform="rotate(105 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="45" transform="rotate(135 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="45" transform="rotate(165 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="45" transform="rotate(195 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="45" transform="rotate(225 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="45" transform="rotate(255 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="45" transform="rotate(285 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="45" transform="rotate(315 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="45" transform="rotate(345 235 235)"/>
+      </g>
+      <g stroke="#a3781f" stroke-width="2" stroke-linecap="round">
+        <!-- 15-minute and 45-minute marks: shorter spikes -->
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(7.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(22.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(37.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(52.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(67.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(82.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(97.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(112.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(127.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(142.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(157.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(172.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(187.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(202.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(217.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(232.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(247.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(262.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(277.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(292.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(307.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(322.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(337.5 235 235)"/>
+        <line x1="235" y1="64" x2="235" y2="53" transform="rotate(352.5 235 235)"/>
       </g>
 
       <g class="cn-numerals">
